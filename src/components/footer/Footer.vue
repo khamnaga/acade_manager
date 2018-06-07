@@ -169,7 +169,7 @@ export default {
     }
 
     .f-left, .f-right {
-        width: 50%;
+        width: 100%;
         height: 230px;
     }
 

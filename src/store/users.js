@@ -10,7 +10,7 @@ export const users = {
 
     // actions: réservées aux process asynchrones
     actions: {
-        // get all USERS
+        // GET all USERS
         getAll({ commit, state }) {
             axios({
                 method: "get",
@@ -25,7 +25,7 @@ export const users = {
             });
         },
 
-        // get one USER
+        // GET one USER
         get({ commit, state }, id) {
             const url = id ? `/user/${id}` : "user/";
             axios({
@@ -62,6 +62,39 @@ export const users = {
                 }).catch(error => {
                     reject(error.response.data.message);
                 });
+            });
+        },
+
+        // DELETE un USER
+        deleteUser({ commit, state }, id) {
+            return new Promise((resolve, reject) => {
+                axios({
+                    method: "delete",
+                    url: `/user/${id}`
+                }).then(response => {
+                    console.log("ok axios");
+                    resolve(response);
+                }).catch(error => {
+                    console.log("error axios");
+                    console.log(error);
+                    reject(error);
+                });
+            });
+        },
+
+        // UPDATE d'un USER
+        updateUser({commit, state}, id) {
+            return new Promise((resolve, reject) => {
+                axios({
+                    method: "put",
+                    url: `/user/${id}`
+                }).then(reponse => {
+                    console.log("axios response"; response);
+                    resolve(response);
+                }).catch(error => {
+                    console.error("axios error", error);
+                    reject(error);
+                })
             });
         },
 

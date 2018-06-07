@@ -14,9 +14,9 @@
                     <figure class="illus">
                     </figure>
                     <div class="text">
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eveniet reiciendis quae excepturi iure, culpa sint dolor consectetur exercitationem quidem adipisci rerum asperiores voluptate corporis fugiat quasi numquam inventore nostrum quo dolorem alias reprehenderit deserunt nisi commodi, nemo. Dolorum, fugit, recusandae.</p>
+                        <p>Anciennement intermittent du spectacle dans le dessin d'animation, j'ai décidé après de nombreuses années dans le métier de faire une reconversion professionnelle.</p>
                     </br>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eveniet reiciendis quae excepturi iure, culpa sint dolor consectetur exercitationem quidem adipisci rerum asperiores voluptate corporis fugiat quasi numquam inventore nostrum quo dolorem alias reprehenderit deserunt nisi commodi, nemo. Dolorum, fugit, recusandae.</p>
+                    <p>Ayant entendu parler de Simplon lors d'un meetup, je me suis renseigné par rapport aux modalités d'inscription et fais le nécessaire pour intégrer la session de formation.</p>
                 </div>
             </div>
         </div>
@@ -29,9 +29,9 @@
                 <figure class="illus">
                 </figure>
                 <div class="text">
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eveniet reiciendis quae excepturi iure, culpa sint dolor consectetur exercitationem quidem adipisci rerum asperiores voluptate corporis fugiat quasi numquam inventore nostrum quo dolorem alias reprehenderit deserunt nisi commodi, nemo. Dolorum, fugit, recusandae.</p>
+                    <p>A la base, nous blaguions avec d'autres simploniens sur le fait que notre chargé de promotion et formateurs, n'avaient pas d'outils pour gérer les retards et les absences.</p>
                 </br>
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eveniet reiciendis quae excepturi iure, culpa sint dolor consectetur exercitationem quidem adipisci rerum asperiores voluptate corporis fugiat quasi numquam inventore nostrum quo dolorem alias reprehenderit deserunt nisi commodi, nemo. Dolorum, fugit, recusandae.</p>
+                <p>Cela a été perçu comme un challenge, je voulais me jauger et appliquer ce que j'avais appris lors de la formation fullstack JavaScript. </p>
             </div>
         </div>
     </div>

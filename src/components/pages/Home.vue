@@ -4,7 +4,9 @@
             <div class="slogan">
                 <h1>ACADE MANAGER</h1>
                 <p>Outil de gestion pour </br> les sessions de formation</p>
-                <button class="btn">INSCRIPTION</button>
+                <router-link :to="'/register/'">
+                    <button class="btn">INSCRIPTION</button>
+                </router-link>
             </div>
         </div>
     <section id="first">
@@ -13,9 +15,9 @@
             <div class="wrapper-1">
                 <div class="first-left"></div>
                 <div class="first-right">
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eveniet reiciendis quae excepturi iure, culpa sint dolor consectetur exercitationem quidem adipisci rerum asperiores voluptate corporis fugiat quasi numquam inventore nostrum quo dolorem alias reprehenderit deserunt nisi commodi, nemo. Dolorum, fugit, recusandae.</p>
+                    <p>Academanager est une application web permettant à des responsables de formation de gérer des personnes suivant ces dernières. Notre service est gratuit et nous espérons qu'il vous sera utile. Notre but étant de créer un réseau d'alumnis et de renforcer ce lien.</p>
                     </br>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eveniet reiciendis quae excepturi iure, culpa sint dolor consectetur exercitationem quidem adipisci rerum asperiores voluptate corporis fugiat quasi numquam inventore nostrum quo dolorem alias reprehenderit deserunt nisi commodi, nemo. Dolorum, fugit, recusandae.</p>
+                    <p>Nous vous proposons un service simple d'accès pour que chaque entité, à savoir élèves, formateurs et chargés de promotion puissent l'utiliser sans soucis.</p>
                 </div>
             </div>
         </div>
@@ -31,52 +33,30 @@
                   <!-- <img class="d-block w-100" src="img/slide.jpg" alt="First slide"> -->
                   <div class="persona-card">
                       <figcaption></figcaption>
-                      <p>Lorem ipsum dolor sit amet, per quando delectus legendos ne, est soleat
-                        fastidii prodesset eu, nulla detracto elaboraret ius et. Ei vis brute lorem
-                        inermis. Qui eu soleat elaboraret, probatus iudicabit vix eu. An sit autem
-                        erant. </p>
+                      <p>" Utiliser Academanager m'a vraiment simplifié la tâche ! Je peux vérifier si mes élèves sont assidus ou non, ainsi que leur profil dûment rempli. "</p>
                       <hr>
-                      <p>PRENOM DU PERSONA</p>
-                      <p>profession du persona</p>
+                      <p>MELLINA</p>
+                      <p>Chargée de promotion</p>
                   </div>
                 </div>
 
                 <div class="carousel-item">
                   <div class="persona-card">
                       <figcaption></figcaption>
-                      <p>Lorem ipsum dolor sit amet, per quando delectus legendos ne, est soleat
-                        fastidii prodesset eu, nulla detracto elaboraret ius et. Ei vis brute lorem
-                        inermis. Qui eu soleat elaboraret, probatus iudicabit vix eu. An sit autem
-                        erant. </p>
+                      <p>" Je ne comprenais pas vraiment pourquoi il était nécessaire de s'inscrire sur Academanager. Avec le recul, mon profil peut servir de premier contact avec mes pairs et surtout d'être visible par des recruteurs. "</p>
                       <hr>
-                      <p>PRENOM DU PERSONA</p>
-                      <p>profession du persona</p>
+                      <p>Marc</p>
+                      <p>En reconversion professionelle</p>
                   </div>
                 </div>
 
                 <div class="carousel-item">
                   <div class="persona-card">
                       <figcaption></figcaption>
-                      <p>Lorem ipsum dolor sit amet, per quando delectus legendos ne, est soleat
-                        fastidii prodesset eu, nulla detracto elaboraret ius et. Ei vis brute lorem
-                        inermis. Qui eu soleat elaboraret, probatus iudicabit vix eu. An sit autem
-                        erant. </p>
+                      <p>" Cette application web est très utile, je peux faire parvenir mes notes à Mellina et échanger des supports de cours avec mes élèves. "</p>
                       <hr>
-                      <p>PRENOM DU PERSONA</p>
-                      <p>profession du persona</p>
-                  </div>
-                </div>
-                <!-- test -->
-                <div class="carousel-item">
-                  <div class="persona-card">
-                      <figcaption></figcaption>
-                      <p>Lorem ipsum dolor sit amet, per quando delectus legendos ne, est soleat
-                        fastidii prodesset eu, nulla detracto elaboraret ius et. Ei vis brute lorem
-                        inermis. Qui eu soleat elaboraret, probatus iudicabit vix eu. An sit autem
-                        erant. </p>
-                      <hr>
-                      <h2>HAROUNA MELLINA</h2>
-                      <p>profession du persona</p>
+                      <h2>HAROUNA</h2>
+                      <p>Formateur en développement web</p>
                   </div>
                 </div>
               </div>
@@ -95,7 +75,7 @@
     <section id="contact">
         <div class="container">
             <h2>CONTACT</h2>
-            <div class="wrapper-1">
+            <div class="wrapper-1 sm">
                 <div class="first-left"></div>
                 <div class="second-right">
                     <p>Nous vous contacterons dans 24H</p>
@@ -108,7 +88,7 @@
                         <!-- <input type="textarea" name="message" placeholder="votre message"> -->
                         <textarea>votre message</textarea>
 
-                        <input type="submit" value="ENVOYER" class="btn">
+                        <input type="submit" value="ENVOYER" class="btn-2">
 
                     </form>
                 </div>
@@ -155,18 +135,26 @@ export default {
     .btn {
         width: 250px;
         height: 75px;
-        background: #FFF;
-        /* color: #FFBF00; */
+        background: transparent;
         font-weight: bold;
         margin-top: 20px;
-        box-shadow: 0px 0px 10px 0px gray;
+        border: 1px solid;
+        border-radius: 30px;
+        transition: 0.3s;
+    }
+
+    .btn:hover {
+        background: #FFF;
+        border: none;
+        box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
     }
 
     div.container {
-        width:  1200px;
+        /* width:  1200px; */
+        width:  100%;
         margin: 0 auto;
         text-align: center;
-        border: 1px solid red;
+        border: 1px solid transparent;
     }
 
     div.container h2 {
@@ -185,13 +173,12 @@ export default {
         height: 600px;
         display: flex;
         flex-wrap: wrap;
-        /* box-shadow: 0px 5px 20px 0px gray; */
         box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
         font-size: 20px;
     }
 
     div.first-left, .first-right, .second-right {
-        width: 554px;
+        width: 50%;
         height: 100%;
     }
 
@@ -267,6 +254,21 @@ export default {
     div.second-right hr {
         margin: 30px 0;
     }
+
+    .btn-2 {
+        width: 90%;
+        height: 75px;
+        background: #FFBF00;
+        font-weight: bold;
+        margin-top: 20px;
+        border: 1px solid transparent;
+        cursor: pointer;
+        transition: 0.3s;
+    }
+
+    .btn-2:hover {
+        box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
+    }
 }
 
 /* TABLET */
@@ -275,7 +277,8 @@ export default {
     div.jumbo {
         width: 100%;
         height: 100vh;
-        background: #FFBF00;
+        background-color: #ffbf00;
+        background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100' height='100' viewBox='0 0 100 100'%3E%3Cg fill-rule='evenodd'%3E%3Cg fill='%23ababab' fill-opacity='0.35'%3E%3Cpath opacity='.5' d='M96 95h4v1h-4v4h-1v-4h-9v4h-1v-4h-9v4h-1v-4h-9v4h-1v-4h-9v4h-1v-4h-9v4h-1v-4h-9v4h-1v-4h-9v4h-1v-4h-9v4h-1v-4H0v-1h15v-9H0v-1h15v-9H0v-1h15v-9H0v-1h15v-9H0v-1h15v-9H0v-1h15v-9H0v-1h15v-9H0v-1h15v-9H0v-1h15V0h1v15h9V0h1v15h9V0h1v15h9V0h1v15h9V0h1v15h9V0h1v15h9V0h1v15h9V0h1v15h9V0h1v15h4v1h-4v9h4v1h-4v9h4v1h-4v9h4v1h-4v9h4v1h-4v9h4v1h-4v9h4v1h-4v9h4v1h-4v9zm-1 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-9-10h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm9-10v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-9-10h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm9-10v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-9-10h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm9-10v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-9-10h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9z'/%3E%3Cpath d='M6 5V0H5v5H0v1h5v94h1V6h94V5H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
     }
 
     div.slogan {
@@ -295,18 +298,25 @@ export default {
     .btn {
         width: 250px;
         height: 75px;
-        background: #FFF;
-        /* color: #FFBF00; */
+        background: transparent;
         font-weight: bold;
         margin-top: 20px;
-        box-shadow: 0px 0px 10px 0px gray;
+        border: 2px solid;
+        border-radius: 30px;
+        transition: 0.3s;
+    }
+
+    .btn:hover {
+        background: #FFF;
+        border: 1px solid transparent;
+        box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
     }
 
     div.container {
         width:  1200px;
         margin: 0 auto;
         text-align: center;
-        border: 1px solid red;
+        border: 1px solid transparent;
     }
 
     div.container h2 {
@@ -316,13 +326,13 @@ export default {
     /* 1ere section */
     section#first {
         width: 100%;
-        height: 108vh;
+        height: 113vh;
         padding: 0px 0px 30px;
     }
 
     div.wrapper-1 {
         width: 100%;
-        height: 898px;
+        height: auto;
         display: flex;
         flex-wrap: wrap;
         /* box-shadow: 0px 5px 20px 0px gray; */
@@ -332,7 +342,7 @@ export default {
 
     div.first-left, .first-right {
         width: 100%;
-        height: 50%;
+        height: 50vh;
     }
 
     div.first-left {
@@ -345,8 +355,13 @@ export default {
         padding: 30px;
     }
 
+    .first-right p {
+        margin-bottom: 3vh;
+    }
+
     div.second-right {
         width: 100%;
+        height: 52vh;
         background: #FFF;
     }
 
@@ -396,7 +411,7 @@ export default {
     }
 
     section#contact {
-        height: 105vh;
+        height: 118vh;
         margin-bottom: 30px;
     }
 
@@ -433,7 +448,8 @@ export default {
     div.jumbo {
         width: 100%;
         height: 100vh;
-        background: #FFBF00;
+        background-color: #ffbf00;
+        background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100' height='100' viewBox='0 0 100 100'%3E%3Cg fill-rule='evenodd'%3E%3Cg fill='%23ababab' fill-opacity='0.35'%3E%3Cpath opacity='.5' d='M96 95h4v1h-4v4h-1v-4h-9v4h-1v-4h-9v4h-1v-4h-9v4h-1v-4h-9v4h-1v-4h-9v4h-1v-4h-9v4h-1v-4h-9v4h-1v-4h-9v4h-1v-4H0v-1h15v-9H0v-1h15v-9H0v-1h15v-9H0v-1h15v-9H0v-1h15v-9H0v-1h15v-9H0v-1h15v-9H0v-1h15v-9H0v-1h15V0h1v15h9V0h1v15h9V0h1v15h9V0h1v15h9V0h1v15h9V0h1v15h9V0h1v15h9V0h1v15h9V0h1v15h4v1h-4v9h4v1h-4v9h4v1h-4v9h4v1h-4v9h4v1h-4v9h4v1h-4v9h4v1h-4v9h4v1h-4v9zm-1 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-9-10h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm9-10v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-9-10h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm9-10v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-9-10h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm9-10v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-9-10h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9z'/%3E%3Cpath d='M6 5V0H5v5H0v1h5v94h1V6h94V5H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
     }
 
     div.slogan {
@@ -453,18 +469,25 @@ export default {
     .btn {
         width: 250px;
         height: 75px;
-        background: #FFF;
-        /* color: #FFBF00; */
+        background: transparent;
         font-weight: bold;
         margin-top: 20px;
-        box-shadow: 0px 0px 10px 0px gray;
+        border: 2px solid;
+        border-radius: 30px;
+        transition: 0.3s;
+    }
+
+    .btn:hover {
+        background: #FFF;
+        border: 1px solid transparent;
+        box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
     }
 
     div.container {
         width:  505px;
         margin: 0 auto;
         text-align: center;
-        border: 1px solid red;
+        border: 1px solid transparent;
     }
 
     div.container h2 {
@@ -543,13 +566,13 @@ export default {
 
     /* contact */
     form {
-        padding: 0px 145px;
+        padding: 0px 75px;
     }
 
-    input {
-        width: 90%;
+    input, textarea {
+        width: 80%;
         padding: 5px;
-        margin: 10px 0;
+        margin: 15px 0;
     }
 
     section#contact {
@@ -559,10 +582,6 @@ export default {
 
     section#contact p {
         margin-top: 30px;
-    }
-
-    section#contact input {
-
     }
 
     div.second-right {
@@ -578,7 +597,8 @@ export default {
     div.jumbo {
         width: 100%;
         height: 47vh;
-        background: #FFBF00;
+        background-color: #ffbf00;
+        background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100' height='100' viewBox='0 0 100 100'%3E%3Cg fill-rule='evenodd'%3E%3Cg fill='%23ababab' fill-opacity='0.35'%3E%3Cpath opacity='.5' d='M96 95h4v1h-4v4h-1v-4h-9v4h-1v-4h-9v4h-1v-4h-9v4h-1v-4h-9v4h-1v-4h-9v4h-1v-4h-9v4h-1v-4h-9v4h-1v-4h-9v4h-1v-4H0v-1h15v-9H0v-1h15v-9H0v-1h15v-9H0v-1h15v-9H0v-1h15v-9H0v-1h15v-9H0v-1h15v-9H0v-1h15v-9H0v-1h15V0h1v15h9V0h1v15h9V0h1v15h9V0h1v15h9V0h1v15h9V0h1v15h9V0h1v15h9V0h1v15h9V0h1v15h4v1h-4v9h4v1h-4v9h4v1h-4v9h4v1h-4v9h4v1h-4v9h4v1h-4v9h4v1h-4v9h4v1h-4v9zm-1 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-9-10h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm9-10v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-9-10h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm9-10v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-9-10h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm9-10v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-9-10h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9z'/%3E%3Cpath d='M6 5V0H5v5H0v1h5v94h1V6h94V5H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
     }
 
     div.slogan {
@@ -596,20 +616,28 @@ export default {
     }
 
     .btn {
-        width: 250px;
+        /* width: 250px;
         height: 75px;
         background: #FFF;
         /* color: #FFBF00; */
+        /* font-weight: bold;
+        margin-top: 20px;
+        box-shadow: 0px 0px 10px 0px gray; */
+        width: 250px;
+        height: 75px;
+        background: #FFF;
         font-weight: bold;
         margin-top: 20px;
-        box-shadow: 0px 0px 10px 0px gray;
+        /* border: 2px solid; */
+        border-radius: 30px;
+        box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
     }
 
     div.container {
         width:  100%;
         margin: 0 auto;
         text-align: center;
-        border: 1px solid red;
+        border: 1px solid transparent;
     }
 
     div.container h2 {
@@ -637,9 +665,18 @@ export default {
         font-size: 20px;
     }
 
+    div.sm {
+        width: 100%;
+        height: 64vh;
+        display: flex;
+        flex-wrap: wrap;
+        box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+        font-size: 20px;
+    }
+
     div.first-left, .first-right {
         width: 100%;
-        height: 30%;
+        height: 37%;
     }
 
     div.first-left {
@@ -649,7 +686,7 @@ export default {
 
     div.first-right {
         background: #FFF;
-        height: 70%;
+        height: auto;
         padding: 18px;
     }
 
@@ -693,23 +730,19 @@ export default {
     }
 
     /* contact */
-    input {
-        width: 90%;
+    input, textarea {
+        width: 80%;
         padding: 5px;
-        margin: 10px 0;
+        margin: 15px 0;
     }
 
     section#contact {
-        height: 73vh;
+        height: 74vh;
         margin-bottom: 30px;
     }
 
     section#contact p {
-        margin-top: 30px;
-    }
-
-    section#contact input {
-
+        margin-top: 10px;
     }
 
     div.second-right {

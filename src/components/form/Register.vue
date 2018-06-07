@@ -3,7 +3,7 @@
       <div class="jumbo-login">
             <div class="wrapper-login">
                 <div class="login-left"></div>
-                <form @submit.prevent action="" id="form_signup" class="login-right">
+                <form @submit.prevent id="form_signup" class="login-right">
 
                     <h2>INSCRIPTION</h2>
 
@@ -12,21 +12,19 @@
                     <input v-model="user.lastname" type="text"  name="lastname"  placeholder="votre nom" required>
                     <input v-model="user.firstname" type="text" name="firstname" placeholder="votre prénom" required>
                     <input v-model="user.age" type="text"       name="age"       placeholder="votre âge" required>
-                    <input v-model="user.email" type="email"    name="email"   placeholder="votre adresse mail" required>
+                    <input v-model="user.email" type="email"    name="email"     placeholder="votre adresse mail" required>
                     <input v-model="user.password" type="password" name="password" placeholder="votre mot de passe" required>
                     <input v-model="user.verifyPassword" type="password" name="password" placeholder="confirmez votre mot de passe" required>
-
                     <textarea v-model="user.bio" name="bio" placeholder="décrivez-vous en 150 caractères" required></textarea>
 
-                    <!-- <p>vous êtes:</p>
-                    <select name="roles">
-                        <option value="etudiant">étudiant</option>
-                        <option value="formateur">formateur</option>
-                    </select> -->
+                    <p>choisissez votre session de formation:</p>
+                    <select name="sessions">
+                        <option v-for="(session, n) in sessions" :key="n">{{ session.name }}</option>
+                    </select>
 
                     <input @click.prevent="postData" type="submit" value="ENVOYER" class="btn">
 
-                    <p>vous avez déjà un compte ? <a href="">Login</a></p>
+                    <p>vous avez déjà un compte ? <router-link :to="'/login/'">Login</router-link></p>
 
                     <span>{{message}}</span>
                     <span>{{messageValidation}}</span>
@@ -61,75 +59,82 @@ export default {
                 bio: 'test',
                 email: 'riri@email.fr',
                 password: '1234',
-                role: 'étudiant'
+                role: 'étudiant',
             },
 
             message: null,
-            messageValidation: null
+            messageValidation: null,
+
+            sessions: null
         }
+    },
+
+    created() {
+        console.log("sessions: ",this.sessions);
+        this.getAllSessions();
     },
 
     methods: {
         postData(e) {
-            console.log(this.user.lastname);
-            // if (
-            //     this.user.lastname != null &&
-            //     this.user.firstname != null &&
-            //     this.user.age != null &&
-            //     this.user.bio != null &&
-            //     this.user.email != null &&
-            //     this.user.password != null &&
-            //     this.user.verifyPassword == this.user.password &&
-            //     this.user.role != null
-            // ) {
+            console.log("id",this.user.id);
+            console.log("nom",this.user.lastname);
+            console.log("prenom",this.user.firstname);
+            console.log("session", this.sessions[0].name);
+            console.log("session", this.sessions[0].id);
 
-                    axios({
-                        method: 'post',
-                        url: "http://localhost:3000/register",
-                        data: {
-                            lastname:  this.user.lastname,
-                            firstname: this.user.firstname,
-                            age:       this.user.age,
-                            bio:       this.user.bio,
-                            email:     this.user.email,
-                            password:  this.user.password,
-                            role:      this.user.role,
-                        }
-                    }).then( res => {
-                        console.log("envoyé par le formulaire");
-                        this.message = res.data;
-                    }).catch(err => {
-                        console.log(err);
-                    })
-            //
-            // }
-            // else {
-            //     this.messageValidation = "Veuillez saisir tous les champs svp!";
-            // }
+            axios({
+                method: 'post',
+                url: "http://localhost:3000/register",
+                data: {
+                    lastname:  this.user.lastname,
+                    firstname: this.user.firstname,
+                    age:       this.user.age,
+                    bio:       this.user.bio,
+                    email:     this.user.email,
+                    password:  this.user.password,
+                    role:      this.user.role,
+                    session_id: this.sessions[0].id
+                }
+            }).then( response => {
+                console.log("envoyé par le formulaire", response);
+                this.message = response.data;
+                this.$router.push(`/profile/${response.data.insertId}`);
+            }).catch(error => {
+                console.log(error);
+            });
+        },
+
+        getAllSessions() {
+            const url = "http://localhost:3001/sessions";
+            axios(url).then(response => {
+                console.log("response 01:", response.data);
+                this.sessions = response.data;
+            });
         }
     }
 }
 </script>
 
 <style lang="css" scoped>
+
 /* DESKTOP */
 @media screen and (min-width: 992px) {
     .jumbo-login {
         width: 100%;
-        height: 100vh;
-        padding: 5% 24%;
+        height: 110vh;
+        padding: 55px 10%;
         background-color: #ffbf00;
         background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100' height='100' viewBox='0 0 100 100'%3E%3Cg fill-rule='evenodd'%3E%3Cg fill='%23ababab' fill-opacity='0.35'%3E%3Cpath opacity='.5' d='M96 95h4v1h-4v4h-1v-4h-9v4h-1v-4h-9v4h-1v-4h-9v4h-1v-4h-9v4h-1v-4h-9v4h-1v-4h-9v4h-1v-4h-9v4h-1v-4h-9v4h-1v-4H0v-1h15v-9H0v-1h15v-9H0v-1h15v-9H0v-1h15v-9H0v-1h15v-9H0v-1h15v-9H0v-1h15v-9H0v-1h15v-9H0v-1h15V0h1v15h9V0h1v15h9V0h1v15h9V0h1v15h9V0h1v15h9V0h1v15h9V0h1v15h9V0h1v15h9V0h1v15h4v1h-4v9h4v1h-4v9h4v1h-4v9h4v1h-4v9h4v1h-4v9h4v1h-4v9h4v1h-4v9h4v1h-4v9zm-1 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-9-10h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm9-10v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-9-10h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm9-10v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-9-10h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm9-10v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-9-10h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9z'/%3E%3Cpath d='M6 5V0H5v5H0v1h5v94h1V6h94V5H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
     }
 
     .wrapper-login {
         width: 100%;
-        height: 77vh;
+        max-width: 980px;
+        height: 97vh;
         display: flex;
         flex-flow: row wrap;
         margin: 0 auto;
         background: #FFF;
-        /* border: 1px solid blue; */
         box-sizing: border-box;
         box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
     }
@@ -168,10 +173,11 @@ export default {
         background: #ffbf00;
     }
 
-    /* .tab textarea {
+    textarea {
+        margin: 15px;
         width: 90%;
-        height: 120px;
-    } */
+        padding: 10px;
+    }
 }
 
 /* TABLET */
@@ -179,7 +185,7 @@ export default {
     .jumbo-login {
         width: 100%;
         height: 100vh;
-        padding: 3% 24%;
+        padding: 55px 4.5%;
         background-color: #ffbf00;
         background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100' height='100' viewBox='0 0 100 100'%3E%3Cg fill-rule='evenodd'%3E%3Cg fill='%23ababab' fill-opacity='0.35'%3E%3Cpath opacity='.5' d='M96 95h4v1h-4v4h-1v-4h-9v4h-1v-4h-9v4h-1v-4h-9v4h-1v-4h-9v4h-1v-4h-9v4h-1v-4h-9v4h-1v-4h-9v4h-1v-4h-9v4h-1v-4H0v-1h15v-9H0v-1h15v-9H0v-1h15v-9H0v-1h15v-9H0v-1h15v-9H0v-1h15v-9H0v-1h15v-9H0v-1h15v-9H0v-1h15V0h1v15h9V0h1v15h9V0h1v15h9V0h1v15h9V0h1v15h9V0h1v15h9V0h1v15h9V0h1v15h9V0h1v15h4v1h-4v9h4v1h-4v9h4v1h-4v9h4v1h-4v9h4v1h-4v9h4v1h-4v9h4v1h-4v9h4v1h-4v9zm-1 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-9-10h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm9-10v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-9-10h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm9-10v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-9-10h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm9-10v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-9-10h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9z'/%3E%3Cpath d='M6 5V0H5v5H0v1h5v94h1V6h94V5H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
     }
@@ -236,14 +242,14 @@ export default {
     .jumbo-login {
         width: 100%;
         height: 100vh;
-        padding: 3% 10%;
+        padding: 55px 8%;
         background-color: #ffbf00;
         background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100' height='100' viewBox='0 0 100 100'%3E%3Cg fill-rule='evenodd'%3E%3Cg fill='%23ababab' fill-opacity='0.35'%3E%3Cpath opacity='.5' d='M96 95h4v1h-4v4h-1v-4h-9v4h-1v-4h-9v4h-1v-4h-9v4h-1v-4h-9v4h-1v-4h-9v4h-1v-4h-9v4h-1v-4h-9v4h-1v-4h-9v4h-1v-4H0v-1h15v-9H0v-1h15v-9H0v-1h15v-9H0v-1h15v-9H0v-1h15v-9H0v-1h15v-9H0v-1h15v-9H0v-1h15v-9H0v-1h15V0h1v15h9V0h1v15h9V0h1v15h9V0h1v15h9V0h1v15h9V0h1v15h9V0h1v15h9V0h1v15h9V0h1v15h4v1h-4v9h4v1h-4v9h4v1h-4v9h4v1h-4v9h4v1h-4v9h4v1h-4v9h4v1h-4v9h4v1h-4v9zm-1 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-9-10h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm9-10v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-9-10h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm9-10v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-9-10h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm9-10v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-9-10h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9z'/%3E%3Cpath d='M6 5V0H5v5H0v1h5v94h1V6h94V5H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
     }
 
     .wrapper-login {
         width: 100%;
-        height: 500px;
+        height: 85vh;
         display: flex;
         flex-flow: row wrap;
         margin: 0 auto;
@@ -290,15 +296,15 @@ export default {
 @media screen and (min-width: 320px) and (max-width: 519px) {
     .jumbo-login {
         width: 100%;
-        height: 65vh;
-        padding: 3% 3%;
+        height: 100vh;
+        padding: 35px 3%;
         background-color: #ffbf00;
         background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100' height='100' viewBox='0 0 100 100'%3E%3Cg fill-rule='evenodd'%3E%3Cg fill='%23ababab' fill-opacity='0.35'%3E%3Cpath opacity='.5' d='M96 95h4v1h-4v4h-1v-4h-9v4h-1v-4h-9v4h-1v-4h-9v4h-1v-4h-9v4h-1v-4h-9v4h-1v-4h-9v4h-1v-4h-9v4h-1v-4h-9v4h-1v-4H0v-1h15v-9H0v-1h15v-9H0v-1h15v-9H0v-1h15v-9H0v-1h15v-9H0v-1h15v-9H0v-1h15v-9H0v-1h15v-9H0v-1h15V0h1v15h9V0h1v15h9V0h1v15h9V0h1v15h9V0h1v15h9V0h1v15h9V0h1v15h9V0h1v15h9V0h1v15h4v1h-4v9h4v1h-4v9h4v1h-4v9h4v1h-4v9h4v1h-4v9h4v1h-4v9h4v1h-4v9h4v1h-4v9zm-1 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-9-10h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm9-10v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-9-10h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm9-10v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-9-10h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm9-10v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-9-10h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9z'/%3E%3Cpath d='M6 5V0H5v5H0v1h5v94h1V6h94V5H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
     }
 
     .wrapper-login {
         width: 100%;
-        height: 500px;
+        height: 89vh;
         display: flex;
         flex-flow: row wrap;
         margin: 0 auto;
@@ -321,7 +327,7 @@ export default {
     }
 
     .login-right input {
-        width: 90%;
+        width: 75%;
         padding: 10px;
         margin: 15px 0;
         border: 1.2px solid black;
@@ -336,7 +342,8 @@ export default {
     }
 
     textarea {
-        width: 90%;
+        width: 75%;
+        margin: 15px 0;
         padding: 10px;
     }
 

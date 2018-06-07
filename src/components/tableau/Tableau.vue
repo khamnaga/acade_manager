@@ -1,14 +1,18 @@
 <template lang="html">
     <div class="container">
         <table class="table table-bordered">
-            <thead class="thead-dark">
+            <thead>
                 <tr>
                     <th>id</th>
                     <th>Nom</th>
                     <th>Prénom</th>
-                    <th>Age</th>
+                    <th class="age">Age</th>
                     <th>Linkedin</th>
                     <th>Github</th>
+                    <th>rôle</th>
+                    <th>Fiche</th>
+                    <th>Mise à jour</th>
+                    <th>suppr</th>
                 </tr>
             </thead>
 
@@ -20,6 +24,20 @@
                     <td class="age">{{ user.age }}</td>
                     <td class="social">{{ user.linkedin }}</td>
                     <td class="social">{{ user.github }}</td>
+                    <td>{{ user.role }}</td>
+                    <td class="read">
+                        <router-link :to="'/profile/' + user.id">
+                            <button type="button" name="button">Fiche</button>
+                        </router-link>
+                    </td>
+                    <td class="maj" @click="updateUser(user)">
+                        <router-link :to="'/update/' + user.id">
+                            <button type="button" name="button">MAJ</button>
+                        </router-link>
+                    </td>
+                    <td class="del" @click="deleteUser(user)">
+                        <button type="button" name="button">X</button>
+                    </td>
                 </tr>
             </tbody>
         </table>
@@ -51,18 +69,50 @@ export default {
                 console.log("response:", response.data);
                 this.users = response.data;
             });
+        },
+
+        deleteUser(user) {
+            const url = "http://localhost:3000/delete/" + user.id;
+            console.log("url:", url);
+            axios.delete(url)
+                 .then(response => {
+                     console.log(response);
+                     if (response) {
+                         this.getAllUsers();
+                     }
+                 })
+                 .catch(error => {
+                     console.error("error axios:", error);
+                 })
+        },
+
+        updateUser(user) {
+            const url = "http://localhost:3000/update/" + user.id;
+            console.log("url:", url);
+            axios.update(url)
         }
     }
 }
 </script>
 
-<style lang="css">
+<style lang="css" scoped>
+
     .container {
+        margin-top: 120px;
+        padding-bottom: 5%;
         width: 100%;
-        height: 100vh.
+        /* height: 100vh; */
+    }
+
+    table {
+        text-transform: capitalize;
+        background: #FFF;
+        font-weight: bold;
     }
 
     thead {
+        background: #2c3e50;
+        color: #FFBF00;
         height: 50px;
     }
 
@@ -71,15 +121,44 @@ export default {
         width: 4%;
     }
 
-    .prenom, .nom {
-        width: 1.5%;
+    tr:nth-child(even) {
+        background: lightgray;
+    }
+
+    .prenom, .nom, .social {
+        width: 1%;
     }
 
     .id, .age {
-        width: 2%;
+        width: 0.1%;
     }
 
-    .social {
-        width: 2%;
+    .read, .maj, .del {
+        width: 0.1%;
     }
+
+/* Tablet XS */
+@media screen and (min-width: 520px) and (max-width: 767px) {
+    .container {
+        margin-top: 120px;
+        padding-bottom: 5%;
+        width: 100%;
+        font-size: 0.9rem;
+    }
+
+    .age {
+        display: none;
+    }
+}
+
+/* Smartphone */
+@media screen and (min-width: 320px) and (max-width: 519px) {
+    .container {
+        margin-top: 120px;
+        padding-bottom: 5%;
+        width: 100%;
+        font-size: 0.9rem;
+    }
+}
+
 </style>

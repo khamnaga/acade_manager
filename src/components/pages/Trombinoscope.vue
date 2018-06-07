@@ -5,7 +5,7 @@
             <div class="wrapper-users">
 
                 <div class="user-card" v-for="(user, n) in users" :key="n">
-                    <router-link to="/profile">
+                    <router-link :to="'/profile/' + user.id ">
                         <div class="user-card-f">
                             <p>{{ user.lastname }} {{ user.firstname }}</p>
                         </div>
@@ -105,7 +105,7 @@ export default {
         font-size: 20px;
         margin-top: 30px;
         text-align: center;
-        padding: 0 6%;
+        /* padding: 0 6%; */
     }
 
     .user-card {

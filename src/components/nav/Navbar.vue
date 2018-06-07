@@ -21,10 +21,16 @@
           <div class="collapse navbar-collapse" id="navbarSupportedContent">
               <ul class="navbar-nav mr-auto">
                   <li class="nav-item active">
-                      <a class="nav-link" href="#">ACCUEIL<span class="sr-only">(current)</span></a>
+                      <a class="nav-link" href="">ACCUEIL<span class="sr-only">(current)</span></a>
+                      <!-- <router-link :to="'/'">
+                          ACCUEIL<span class="sr-only">(current)</span>
+                      </router-link> -->
                   </li>
                   <li class="nav-item">
                       <a class="nav-link" href="#">A PROPOS</a>
+                      <!-- <router-link :to="'/about/'">
+                          A PROPOS
+                      </router-link> -->
                   </li>
                   <li class="nav-item">
                       <a class="nav-link" href="#">SESSIONS</a>
@@ -62,12 +68,13 @@ export default {
 
     header {
         width: 100%;
+        // height: auto;
         height: 80px;
-        background: #FFF;
+        background: white;
         position: absolute;
         top: 0;
         left: 0;
-        z-index: 1;
+        // z-index: 1;
         box-shadow: 0px 0px 10px 0px gray;
     }
 
@@ -78,8 +85,9 @@ export default {
 
     .navbar {
         position: absolute;
-        right: 0;
-        top: 0;
-        height: 80px;
+        right: 50px;
+        top: 15px;
+        height: auto;
+        background: white;
     }
 </style>

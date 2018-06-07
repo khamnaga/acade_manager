@@ -8,8 +8,10 @@ import Login     from "./components/pages/Login.vue";
 import About     from "./components/pages/About.vue";
 import Dashboard from "./components/pages/Dashboard.vue";
 import Profile   from "./components/pages/Profile.vue";
+import Update    from "./components/pages/Update.vue";
+import Sessions    from "./components/pages/Sessions.vue";
 import Register  from "./components/form/Register.vue";
-import Tableau from "./components/tableau/Tableau.vue";
+import Tableau   from "./components/tableau/Tableau.vue";
 import Trombinoscope from "./components/pages/Trombinoscope.vue";
 
 Vue.use(VueRouter);
@@ -60,20 +62,20 @@ const routes = [
     {
         component: Profile,
         name: "profile",
-        path: "/profile",
-    }
+        path: "/profile/:id",
+    },
 
-    // {
-    //     component: Profile,
-    //     name: "profile",
-    //     path: "/profile",
-    // },
+    {
+        component: Update,
+        name: "update",
+        path: "/update/:id",
+    },
 
-    // {
-    //     component: Sessions,
-    //     name: "sessions",
-    //     path: "/sessions",
-    // },
+    {
+        component: Sessions,
+        name: "sessions",
+        path: "/sessions",
+    },
 ];
 
 export default new VueRouter({
