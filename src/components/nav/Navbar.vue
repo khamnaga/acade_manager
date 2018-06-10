@@ -21,22 +21,27 @@
           <div class="collapse navbar-collapse" id="navbarSupportedContent">
               <ul class="navbar-nav mr-auto">
                   <li class="nav-item active">
-                      <a class="nav-link" href="">ACCUEIL<span class="sr-only">(current)</span></a>
-                      <!-- <router-link :to="'/'">
+                      <!-- <a class="nav-link" href="">ACCUEIL<span class="sr-only">(current)</span></a> -->
+                      <router-link :to="'/'">
                           ACCUEIL<span class="sr-only">(current)</span>
-                      </router-link> -->
+                      </router-link>
                   </li>
                   <li class="nav-item">
-                      <a class="nav-link" href="#">A PROPOS</a>
-                      <!-- <router-link :to="'/about/'">
+                      <!-- <a class="nav-link" href="#">A PROPOS</a> -->
+                      <router-link :to="'/about/'">
                           A PROPOS
-                      </router-link> -->
+                      </router-link>
                   </li>
                   <li class="nav-item">
-                      <a class="nav-link" href="#">SESSIONS</a>
+                      <router-link :to="'/sessions/'">
+                          SESSIONS
+                      </router-link>
                   </li>
                   <li class="nav-item">
-                      <a class="nav-link" href="#">SE CONNECTER</a>
+                      <!-- <a class="nav-link" href="#">SE CONNECTER</a> -->
+                      <router-link :to="'/login/'">
+                          SE CONNECTER
+                      </router-link>
                   </li>
               </ul>
           </div>
@@ -89,5 +94,9 @@ export default {
         top: 15px;
         height: auto;
         background: white;
+    }
+
+    ul {
+        word-spacing: 10px;
     }
 </style>

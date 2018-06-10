@@ -11,7 +11,7 @@ import Profile   from "./components/pages/Profile.vue";
 import Update    from "./components/pages/Update.vue";
 import Sessions    from "./components/pages/Sessions.vue";
 import Register  from "./components/form/Register.vue";
-import Tableau   from "./components/tableau/Tableau.vue";
+import TableauAdmin   from "./components/tableau/TableauAdmin.vue";
 import Trombinoscope from "./components/pages/Trombinoscope.vue";
 
 Vue.use(VueRouter);
@@ -48,9 +48,9 @@ const routes = [
     },
 
     {
-        component: Tableau,
-        name: "tableau",
-        path: "/tableau",
+        component: TableauAdmin,
+        name: "tableau-admin",
+        path: "/tableau-admin",
     },
 
     {

@@ -7,7 +7,7 @@ import Vuex from "vuex";
 import { users } from "./users.js";
 
 // module SESSIONS
-import { sessions } from "./sessions/js";
+import { sessions } from "./sessions.js";
 
 Vue.use(Vuex);
 

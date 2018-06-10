@@ -91,7 +91,7 @@ export default {
                 data: this.user
             }).then(response => {
                 console.log("response:", response);
-                // this.$router.push(`/profile/${this.$route.params.id}`);
+                this.$router.push(`/profile/${this.$route.params.id}`);
             }).catch(error => {
                 console.log("msg error", error);
                 if (error) throw error;

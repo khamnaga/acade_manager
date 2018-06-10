@@ -9,14 +9,12 @@
 <script>
 import Navbar   from "./components/nav/Navbar.vue";
 import Footerr  from "./components/footer/Footer.vue";
-import Tableau  from "./components/tableau/Tableau.vue";
 
 export default {
   name: 'app',
   components: {
       Navbar,
-      Footerr,
-      Tableau
+      Footerr
   },
 }
 </script>

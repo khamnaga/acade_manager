@@ -62,7 +62,6 @@ export default {
                 console.log("response profile", response.data);
                 this.user = response.data[0];
                 console.log(response.data);
-                // this.$router.push(`/update/${response.data.insertId}`);
             }).catch(error => {
                 console.error("msg error:", error);
                 if (error) throw error;

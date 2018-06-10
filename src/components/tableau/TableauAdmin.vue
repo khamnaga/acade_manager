@@ -11,7 +11,7 @@
                     <th>Github</th>
                     <th>rôle</th>
                     <th>Fiche</th>
-                    <th>Mise à jour</th>
+                    <!-- <th>Mise à jour</th> -->
                     <th>suppr</th>
                 </tr>
             </thead>
@@ -24,17 +24,17 @@
                     <td class="age">{{ user.age }}</td>
                     <td class="social">{{ user.linkedin }}</td>
                     <td class="social">{{ user.github }}</td>
-                    <td>{{ user.role }}</td>
+                    <td class="role">{{ user.roles }}</td>
                     <td class="read">
                         <router-link :to="'/profile/' + user.id">
                             <button type="button" name="button">Fiche</button>
                         </router-link>
                     </td>
-                    <td class="maj" @click="updateUser(user)">
+                    <!-- <td class="maj" @click="updateUser(user)">
                         <router-link :to="'/update/' + user.id">
                             <button type="button" name="button">MAJ</button>
                         </router-link>
-                    </td>
+                    </td> -->
                     <td class="del" @click="deleteUser(user)">
                         <button type="button" name="button">X</button>
                     </td>
@@ -49,7 +49,7 @@ import axios from 'axios';
 
 export default {
 
-    name: 'tableau',
+    name: 'tableau-admin',
 
     data() {
         return {
@@ -86,11 +86,11 @@ export default {
                  })
         },
 
-        updateUser(user) {
-            const url = "http://localhost:3000/update/" + user.id;
-            console.log("url:", url);
-            axios.update(url)
-        }
+        // updateUser(user) {
+        //     const url = "http://localhost:3000/update/" + user.id;
+        //     console.log("url:", url);
+        //     axios.update(url)
+        // }
     }
 }
 </script>
@@ -131,6 +131,10 @@ export default {
 
     .id, .age {
         width: 0.1%;
+    }
+
+    .role {
+        width: 0.18%;
     }
 
     .read, .maj, .del {

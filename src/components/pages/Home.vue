@@ -15,7 +15,8 @@
             <div class="wrapper-1">
                 <div class="first-left"></div>
                 <div class="first-right">
-                    <p>Academanager est une application web permettant à des responsables de formation de gérer des personnes suivant ces dernières. Notre service est gratuit et nous espérons qu'il vous sera utile. Notre but étant de créer un réseau d'alumnis et de renforcer ce lien.</p>
+                    <p>ACADE MANAGER est une application web permettant à des organismes de formation de gérer de nouvelles sessions.
+                        Par la suite, les élèves auront la possibilité de s’y inscrire et de créer leur profil.</p>
                     </br>
                     <p>Nous vous proposons un service simple d'accès pour que chaque entité, à savoir élèves, formateurs et chargés de promotion puissent l'utiliser sans soucis.</p>
                 </div>
@@ -32,7 +33,9 @@
                 <div class="carousel-item active">
                   <!-- <img class="d-block w-100" src="img/slide.jpg" alt="First slide"> -->
                   <div class="persona-card">
-                      <figcaption></figcaption>
+                      <figcaption>
+                          <img src="../../assets/img/persona01.png" alt="portrait de Mellina">
+                      </figcaption>
                       <p>" Utiliser Academanager m'a vraiment simplifié la tâche ! Je peux vérifier si mes élèves sont assidus ou non, ainsi que leur profil dûment rempli. "</p>
                       <hr>
                       <p>MELLINA</p>
@@ -42,7 +45,9 @@
 
                 <div class="carousel-item">
                   <div class="persona-card">
-                      <figcaption></figcaption>
+                      <figcaption>
+                          <img src="../../assets/img/persona03.png" alt="portrait de Marc">
+                      </figcaption>
                       <p>" Je ne comprenais pas vraiment pourquoi il était nécessaire de s'inscrire sur Academanager. Avec le recul, mon profil peut servir de premier contact avec mes pairs et surtout d'être visible par des recruteurs. "</p>
                       <hr>
                       <p>Marc</p>
@@ -52,7 +57,9 @@
 
                 <div class="carousel-item">
                   <div class="persona-card">
-                      <figcaption></figcaption>
+                      <figcaption>
+                          <img src="../../assets/img/persona02.png" alt="portrait de Harouna">
+                      </figcaption>
                       <p>" Cette application web est très utile, je peux faire parvenir mes notes à Mellina et échanger des supports de cours avec mes élèves. "</p>
                       <hr>
                       <h2>HAROUNA</h2>
@@ -188,7 +195,7 @@ export default {
 
     div.first-right {
         background: #FFF;
-        padding: 30px;
+        padding: 10%;
     }
 
     /* personas */
@@ -206,17 +213,29 @@ export default {
         background: #FFF;
         margin: 0 auto;
         margin-bottom: 30px;
-        padding: 200px 100px 40px;
+        padding: 40px 100px 40px;
         border-radius: 10px;
         box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
     }
 
     div.persona-card hr {
-        margin: 50px 0px;
+        margin: 34px 0px 20px;
     }
 
     div.persona-card p:nth-child(3) {
         margin-top: 35px;
+    }
+
+    figcaption {
+        margin-bottom: 40px;
+    }
+
+    img {
+        width: 25%;
+        margin-top: 23px;
+        top: 0;
+        border-radius: 50%;
+        box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
     }
 
     .carousel-control-next,
@@ -352,7 +371,7 @@ export default {
     div.first-right {
         background: #FFF;
         height: 450px;
-        padding: 30px;
+        padding: 13%;
     }
 
     .first-right p {
@@ -380,17 +399,29 @@ export default {
         background: #FFF;
         margin: 0 auto;
         margin-bottom: 30px;
-        padding: 200px 100px 40px;
+        padding: 40px 100px 40px;
         border-radius: 10px;
         box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
     }
 
     div.persona-card hr {
-        margin: 50px 0px;
+        margin: 33px 0px;
     }
 
     div.persona-card p:nth-child(3) {
         margin-top: 35px;
+    }
+
+    figcaption {
+        margin-bottom: 40px;
+    }
+
+    img {
+        width: 35%;
+        margin-top: 23px;
+        top: 0;
+        border-radius: 50%;
+        box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
     }
 
     .carousel-control-next,
@@ -523,7 +554,7 @@ export default {
     div.first-right {
         background: #FFF;
         height: 525px;
-        padding: 30px;
+        padding: 15%;
     }
 
     div.second-right {
@@ -546,7 +577,7 @@ export default {
         background: #FFF;
         margin: 0 auto;
         margin-bottom: 30px;
-        padding: 200px 40px 40px;
+        padding: 40px 40px 40px;
         border-radius: 10px;
         box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
     }
@@ -557,6 +588,18 @@ export default {
 
     div.persona-card p:nth-child(3) {
         margin-top: 35px;
+    }
+
+    figcaption {
+        margin-bottom: 40px;
+    }
+
+    img {
+        width: 35%;
+        margin-top: 23px;
+        top: 0;
+        border-radius: 50%;
+        box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
     }
 
     .carousel-control-next,
@@ -711,7 +754,7 @@ export default {
         background: #FFF;
         margin: 0 auto;
         margin-bottom: 30px;
-        padding: 165px 20px 40px;
+        padding: 35px 20px 40px;
         border-radius: 10px;
         box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
     }
@@ -722,6 +765,18 @@ export default {
 
     div.persona-card p:nth-child(3) {
         margin-top: 35px;
+    }
+
+    figcaption {
+        margin-bottom: 40px;
+    }
+
+    img {
+        width: 50%;
+        margin-top: 23px;
+        top: 0;
+        border-radius: 50%;
+        box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
     }
 
     .carousel-control-next,

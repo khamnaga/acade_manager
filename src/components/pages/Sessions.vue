@@ -5,34 +5,13 @@
 
                 <h2 class="title">SESSIONS DE FORMATION</h2>
 
-                <!-- <div class="session-card">
-                    <h2>SESSION AULNAY SOUS BOIS #2</h2>
-                    <div class="content">
-                        <h3>FORMATION DEVELOPPEMENT WEB</br> FULLSTACK JAVASCRIPT</h3>
-                        <p>CHARGE DE PROMOTION SOUFIANE ROUASS</p>
-                        <div class="card-footer">
-                            <p>2 formateurs | 20 élèves</p>
-                        </div>
-                    </div>
-                </div> -->
-
-                <!-- <div class="session-card">
-                    <h2>SESSION AULNAY SOUS BOIS #3</h2>
-                    <div class="content">
-                        <h3>FORMATION DEVELOPPEMENT WEB</br> FULLSTACK JAVASCRIPT</h3>
-                        <p>CHARGE DE PROMOTION SOUFIANE ROUASS</p>
-                        <div class="card-footer">
-                            <p>2 formateurs | 28 élèves</p>
-                        </div>
-                    </div>
-                </div> -->
-
                 <router-link :to="'/trombinoscope'" class="link">
                     <div v-for="(session, n) in sessions" :key="n"class="session-card">
                         <h2>SESSION {{ session.name }}</h2>
                         <div class="content">
                             <h3>{{ session.entitled }}</h3>
                             <p>CHARGE DE PROMOTION {{ session.admin_firstname }} {{ session.admin_lastname }}</p>
+                            <p>Du {{ session.start_date }} au {{ session.end_date }} </p>
                             <div class="card-footer">
                                 <p>2 formateurs | 32 élèves</p>
                             </div>
@@ -105,7 +84,8 @@ export default {
     .session-card {
         width: 100%;
         max-width: 700px;
-        height: 400px;
+        height: auto;
+        /* height: 400px; */
         margin: 0 auto 30px;
         padding: 30px 70px;
         background: #FFF;
@@ -118,7 +98,8 @@ export default {
     }
 
     .content {
-        height: 250px;
+        /* height: 250px; */
+        height: auto;
         border: 1.5px solid #FFBF00;
         margin-top: 20px;
         padding-top: 20px;
