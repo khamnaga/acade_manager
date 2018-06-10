@@ -13,7 +13,9 @@
         <div class="container">
             <h2>CE QUE NOUS PROPOSONS</h2>
             <div class="wrapper-1">
-                <div class="first-left"></div>
+                <div class="first-left">
+                    <img class="services" src="../../assets/img/services.png" alt="icones de services">
+                </div>
                 <div class="first-right">
                     <p>ACADE MANAGER est une application web permettant à des organismes de formation de gérer de nouvelles sessions.
                         Par la suite, les élèves auront la possibilité de s’y inscrire et de créer leur profil.</p>
@@ -34,7 +36,7 @@
                   <!-- <img class="d-block w-100" src="img/slide.jpg" alt="First slide"> -->
                   <div class="persona-card">
                       <figcaption>
-                          <img src="../../assets/img/persona01.png" alt="portrait de Mellina">
+                          <img class="portrait" src="../../assets/img/persona01.png" alt="portrait de Mellina">
                       </figcaption>
                       <p>" Utiliser Academanager m'a vraiment simplifié la tâche ! Je peux vérifier si mes élèves sont assidus ou non, ainsi que leur profil dûment rempli. "</p>
                       <hr>
@@ -46,7 +48,7 @@
                 <div class="carousel-item">
                   <div class="persona-card">
                       <figcaption>
-                          <img src="../../assets/img/persona03.png" alt="portrait de Marc">
+                          <img class="portrait" src="../../assets/img/persona03.png" alt="portrait de Marc">
                       </figcaption>
                       <p>" Je ne comprenais pas vraiment pourquoi il était nécessaire de s'inscrire sur Academanager. Avec le recul, mon profil peut servir de premier contact avec mes pairs et surtout d'être visible par des recruteurs. "</p>
                       <hr>
@@ -58,7 +60,7 @@
                 <div class="carousel-item">
                   <div class="persona-card">
                       <figcaption>
-                          <img src="../../assets/img/persona02.png" alt="portrait de Harouna">
+                          <img class="portrait" src="../../assets/img/persona02.png" alt="portrait de Harouna">
                       </figcaption>
                       <p>" Cette application web est très utile, je peux faire parvenir mes notes à Mellina et échanger des supports de cours avec mes élèves. "</p>
                       <hr>
@@ -83,7 +85,9 @@
         <div class="container">
             <h2>CONTACT</h2>
             <div class="wrapper-1 sm">
-                <div class="first-left"></div>
+                <div class="first-left">
+                    <img class="mail" src="../../assets/img/mail.png" alt="enveloppe jaune">
+                </div>
                 <div class="second-right">
                     <p>Nous vous contacterons dans 24H</p>
 
@@ -190,12 +194,17 @@ export default {
     }
 
     div.first-left {
+        padding-top: 15%;
         background: #FFBF00;
     }
 
     div.first-right {
         background: #FFF;
         padding: 10%;
+    }
+
+    .services {
+        width: 70%
     }
 
     /* personas */
@@ -230,7 +239,7 @@ export default {
         margin-bottom: 40px;
     }
 
-    img {
+    .portrait {
         width: 25%;
         margin-top: 23px;
         top: 0;
@@ -288,6 +297,11 @@ export default {
     .btn-2:hover {
         box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
     }
+
+    .mail {
+        width: 60%;
+    }
+
 }
 
 /* TABLET */
@@ -416,7 +430,12 @@ export default {
         margin-bottom: 40px;
     }
 
-    img {
+    .mail {
+        width: 50%;
+        margin-top: 115px;
+    }
+
+    .portrait {
         width: 35%;
         margin-top: 23px;
         top: 0;
@@ -594,7 +613,12 @@ export default {
         margin-bottom: 40px;
     }
 
-    img {
+    .mail {
+        width: 50%;
+        margin-top: 70px;
+    }
+
+    .portrait {
         width: 35%;
         margin-top: 23px;
         top: 0;
@@ -771,7 +795,12 @@ export default {
         margin-bottom: 40px;
     }
 
-    img {
+    .mail {
+        width: 50%;
+        margin-top: 50px;;
+    }
+
+    .portrait {
         width: 50%;
         margin-top: 23px;
         top: 0;

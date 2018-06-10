@@ -29,6 +29,7 @@
             <h2>GENESE DU PROJET</h2>
             <div class="wrapper-3">
                 <figure class="illus">
+                    <img src="../../assets/img/lightbulb.png" alt="idée ampoule">
                 </figure>
                 <div class="text">
                     <p>Au départ, j’ai voulu créer cette application dans le cadre d’un projet personnel car elle permettrait d’aider mon chargé de promotion dans la gestion des absences, des retards et de la bonne tenue des comptes github et linkedin des élèves.</p>
@@ -114,7 +115,7 @@ export default {
         height: auto;
         margin: 0 auto;
         text-align: center;
-        border: 1px solid red;
+        border: 1px solid transparent;
     }
 
     .container-about h2 {
@@ -131,6 +132,13 @@ export default {
         height: 580px;
         background: #FFBF00;
         margin: 0 auto;
+    }
+
+    img {
+        background-size: cover;
+        /* max-width: 100%; */
+        width: 55%;
+        /* height: auto; */
     }
 }
 
@@ -159,7 +167,7 @@ export default {
         height: auto;
         margin: 0 auto;
         text-align: center;
-        border: 1px solid red;
+        border: 1px solid transparent;
     }
 
     .container-about h2 {
@@ -175,6 +183,10 @@ export default {
         height: 510px;
         background: #FFBF00;
         margin: 0 auto;
+    }
+
+    img {
+        width: 75%;
     }
 }
 
@@ -203,7 +215,7 @@ export default {
         height: auto;
         margin: 0 auto;
         text-align: center;
-        border: 1px solid red;
+        border: 1px solid transparent;
     }
 
     .container-about h2 {
@@ -219,6 +231,10 @@ export default {
         height: 400px;
         background: #FFBF00;
         margin: 0 auto;
+    }
+
+    img {
+        width: 60%;
     }
 }
 
@@ -247,7 +263,7 @@ export default {
         height: auto;
         margin: 0 auto;
         text-align: center;
-        border: 1px solid red;
+        border: 1px solid transparent;
     }
 
     .container-about h2 {
@@ -265,6 +281,10 @@ export default {
         height: 300px;
         background: #FFBF00;
         margin: 0 auto;
+    }
+
+    img {
+        width: 65%;
     }
 }
 </style>

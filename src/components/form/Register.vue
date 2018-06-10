@@ -130,7 +130,7 @@ export default {
     .wrapper-login {
         width: 100%;
         max-width: 980px;
-        height: 97vh;
+        height: 95vh;
         display: flex;
         flex-flow: row wrap;
         margin: 0 auto;
@@ -154,6 +154,7 @@ export default {
     }
 
     .login-right input, textarea, select {
+        height: 5.5%;
         width: 90%;
         padding: 10px;
         margin: 15px 0;
