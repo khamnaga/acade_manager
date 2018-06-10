@@ -310,6 +310,7 @@ export default {
         font-weight: bold;
         margin-top: 20px;
         border: 1px solid transparent;
+        border-radius: 30px;
         cursor: pointer;
         transition: 0.3s;
     }
@@ -410,6 +411,10 @@ export default {
         background: #FFF;
         height: 450px;
         padding: 13%;
+    }
+
+    .services {
+        width: 70%
     }
 
     .first-right p {
@@ -514,6 +519,22 @@ export default {
     div.second-right hr {
         margin: 30px 0;
     }
+
+    .btn-2 {
+        width: 90%;
+        height: 75px;
+        background: #FFBF00;
+        font-weight: bold;
+        margin-top: 20px;
+        border: 1px solid transparent;
+        border-radius: 30px;
+        cursor: pointer;
+        transition: 0.3s;
+    }
+
+    .btn-2:hover {
+        box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
+    }
 }
 
 /* TABLET XS */
@@ -604,6 +625,10 @@ export default {
         padding: 15%;
     }
 
+    .services {
+        width: 70%
+    }
+
     div.second-right {
         width: 100%;
         background: #FFF;
@@ -684,6 +709,22 @@ export default {
         text-align: center;
         background: #FFF;
     }
+
+    .btn-2 {
+        width: 82%;
+        height: 75px;
+        background: #FFBF00;
+        font-weight: bold;
+        margin-top: 20px;
+        border: 1px solid transparent;
+        border-radius: 30px;
+        cursor: pointer;
+        transition: 0.3s;
+    }
+
+    .btn-2:hover {
+        box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
+    }
 }
 
 /* SMARTPHONE */
@@ -715,19 +756,11 @@ export default {
     }
 
     .btn {
-        /* width: 250px;
-        height: 75px;
-        background: #FFF;
-        /* color: #FFBF00; */
-        /* font-weight: bold;
-        margin-top: 20px;
-        box-shadow: 0px 0px 10px 0px gray; */
         width: 250px;
         height: 75px;
         background: #FFF;
         font-weight: bold;
         margin-top: 20px;
-        /* border: 2px solid; */
         border-radius: 30px;
         box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
     }
@@ -857,7 +890,7 @@ export default {
     }
 
     section#contact {
-        height: 74vh;
+        height: 77vh;
         margin-bottom: 30px;
     }
 
@@ -869,6 +902,22 @@ export default {
         padding: 30px;
         text-align: center;
         background: #FFF;
+    }
+
+    .btn-2 {
+        width: 80%;
+        height: 75px;
+        background: #FFBF00;
+        font-weight: bold;
+        margin-top: 20px;
+        border: 1px solid transparent;
+        /* border-radius: 30px; */
+        cursor: pointer;
+        transition: 0.3s;
+    }
+
+    .btn-2:hover {
+        box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
     }
 }
 

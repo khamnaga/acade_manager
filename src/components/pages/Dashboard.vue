@@ -1,5 +1,5 @@
 <template lang="html">
-    <div class="">
+
         <div id="dash">
               <div class="column">
                   <router-link :to="'/dashboard/'">
@@ -31,7 +31,7 @@
                   </form>
             </div>
          </div>
-    </div>
+    
 </template>
 
 <script>

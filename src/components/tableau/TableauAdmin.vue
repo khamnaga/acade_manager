@@ -55,6 +55,7 @@
 
 <script>
 import axios from 'axios';
+// import Dashboard from './components/pages/Dashboard.vue';
 
 export default {
 
@@ -65,6 +66,10 @@ export default {
             users: []
         }
     },
+
+    // components: {
+    //     Dashboard
+    // },
 
     created() {
         console.log("users: ",this.users);

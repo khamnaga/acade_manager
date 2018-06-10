@@ -9,7 +9,7 @@ import About     from "./components/pages/About.vue";
 import Dashboard from "./components/pages/Dashboard.vue";
 import Profile   from "./components/pages/Profile.vue";
 import Update    from "./components/pages/Update.vue";
-import Sessions    from "./components/pages/Sessions.vue";
+import Sessions  from "./components/pages/Sessions.vue";
 import Register  from "./components/form/Register.vue";
 import TableauAdmin   from "./components/tableau/TableauAdmin.vue";
 import Trombinoscope from "./components/pages/Trombinoscope.vue";
