@@ -1,5 +1,14 @@
 <template lang="html">
     <div class="container">
+        <h2>page d'administration - liste des élèves</h2>
+        <div class="column">
+            <router-link :to="'/dashboard/'">
+                <p>sessions</p>
+            </router-link>
+            <router-link :to="'/tableau-admin/'">
+                <p>eleves</p>
+            </router-link>
+        </div>
         <table class="table table-bordered">
             <thead>
                 <tr>
@@ -96,11 +105,31 @@ export default {
 </script>
 
 <style lang="css" scoped>
+    h2 {
+        text-transform: uppercase;
+        margin: 30px 0px;
+    }
+
+    .column {
+        width: 14vw;
+        height: 200vh;
+        font-size: 1.5rem;
+        text-align: center;
+        text-transform: uppercase;
+        background: #FFBF00;
+        padding: 100px 50px 0;
+        position: absolute;
+        top: 62px;
+        left: 0;
+        z-index: -1;
+        box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+    }
 
     .container {
         margin-top: 120px;
         padding-bottom: 5%;
         width: 100%;
+        margin-left: 27%;
         /* height: 100vh; */
     }
 

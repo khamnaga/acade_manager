@@ -2,8 +2,12 @@
     <div class="">
         <div id="dash">
               <div class="column">
-                  <p>sessions</p>
-                  <p>eleves</p>
+                  <router-link :to="'/dashboard/'">
+                      <p>sessions</p>
+                  </router-link>
+                  <router-link :to="'/tableau-admin/'">
+                      <p>eleves</p>
+                  </router-link>
               </div>
 
               <div class="wrapper">
@@ -15,7 +19,9 @@
 
                       <input v-model="session.entitled" type="text" name="entitled"  placeholder="Intitulé de la session" required>
                       <input v-model="session.name"     type="text" name="name" placeholder="Nom de la session" required>
+                      <label for="start_date">date de début</label>
                       <input v-model="session.start_date" type="date" name="start_date" placeholder="Date de début" required>
+                      <label for="start_date">date de fin</label>
                       <input v-model="session.end_date"   type="date" name="end-date" placeholder="Date de fin" required>
                       <input v-model="session.admin_firstname" type="text" name="firstname" placeholder="Nom chargé.e de promotion" required>
                       <input v-model="session.admin_lastname"  type="text" name="lastname" placeholder="Prénom chargé.e de promotion" required>
@@ -86,7 +92,9 @@ export default {
 
 <style lang="css" scoped>
 /* page dashboard */
-
+p {
+    color: #000;
+}
 /* DESKTOP */
 @media screen and (min-width: 992px) {
     #dash {
@@ -111,15 +119,15 @@ export default {
 
     .wrapper {
         width: 99vw;
-        padding-top: 77px;
+        padding-top: 65px;
     }
 
     form {
         width: 430px;
-        height: 77vh;
+        height: 82vh;
         background: #FFF;
         text-align: center;
-        padding: 40px 100px;
+        padding: 35px 100px;
         box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.5);
         margin: 0 auto;
     }
@@ -129,6 +137,22 @@ export default {
         margin: 15px 0;
         border: 1.1px solid;
         padding: 10px;
+    }
+
+    .btn {
+        width: 100%;
+        height: 70px;
+        background: #FFBF00;
+        font-weight: bold;
+        border: 1px solid transparent;
+        border-radius: 30px;
+        transition: 0.3s;
+    }
+
+    .btn:hover {
+        background: #FFBF00;
+        border: none;
+        box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
     }
 }
 
@@ -158,13 +182,13 @@ export default {
 
     .wrapper {
         width: 100%;
-        padding-top: 110px;
+        padding-top: 60px;
         padding-left: 16%;
     }
 
     form {
         width: 430px;
-        height: 77vh;
+        height: 82vh;
         background: #FFF;
         text-align: center;
         padding: 40px 100px;
@@ -177,6 +201,22 @@ export default {
         margin: 15px 0;
         border: 1.1px solid;
         padding: 10px;
+    }
+
+    .btn {
+        width: 100%;
+        height: 65px;
+        background: #FFBF00;
+        font-weight: bold;
+        border: 1px solid transparent;
+        border-radius: 30px;
+        transition: 0.3s;
+    }
+
+    .btn:hover {
+        background: #FFBF00;
+        border: none;
+        box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
     }
 }
 
@@ -200,7 +240,7 @@ export default {
         text-align: center;
         text-transform: uppercase;
         background: #FFBF00;
-        padding: 100px 25px 0;
+        padding: 55px 10px 0;
         float: left;
         box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
     }
@@ -209,12 +249,12 @@ export default {
 
     .wrapper {
         width: 100%;
-        padding-top: 110px;
+        padding-top: 65px;
     }
 
     form {
         width: 430px;
-        height: 77vh;
+        height: 82vh;
         background: #FFF;
         text-align: center;
         padding: 40px 100px;
@@ -227,6 +267,22 @@ export default {
         margin: 15px 0;
         border: 1.1px solid;
         padding: 10px;
+    }
+
+    .btn {
+        width: 100%;
+        height: 65px;
+        background: #FFBF00;
+        font-weight: bold;
+        border: 1px solid transparent;
+        border-radius: 30px;
+        transition: 0.3s;
+    }
+
+    .btn:hover {
+        background: #FFBF00;
+        border: none;
+        box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
     }
 }
 
@@ -243,14 +299,14 @@ export default {
     .column {
         /* display: none; */
         width: 80px;
-        height: 175px;
+        height: 115px;
         font-size: 1rem;
-        margin-top: 30vh;
+        margin-top: 3vh;
         position: fixed;
         text-align: center;
         text-transform: uppercase;
         background: #FFBF00;
-        padding: 100px 25px 0;
+        padding: 30px 10px 0;
         float: left;
         box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
     }
@@ -259,12 +315,12 @@ export default {
 
     .wrapper {
         width: 100%;
-        padding-top: 110px;
+        padding-top: 55px;
     }
 
     form {
         width: 90%;
-        height: 77vh;
+        height: 82vh;
         background: #FFF;
         text-align: center;
         padding: 40px 40px;
@@ -277,6 +333,22 @@ export default {
         margin: 15px 0;
         border: 1.1px solid;
         padding: 10px;
+    }
+
+    .btn {
+        width: 100%;
+        height: 60px;
+        background: #FFBF00;
+        font-weight: bold;
+        border: 1px solid transparent;
+        border-radius: 30px;
+        transition: 0.3s;
+    }
+
+    .btn:hover {
+        background: #FFBF00;
+        border: none;
+        box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
     }
 }
 /* page dashboard */

@@ -23,13 +23,13 @@ upture tendon d'achille7<template>
                   <li class="nav-item active">
                       <!-- <a class="nav-link" href="">ACCUEIL<span class="sr-only">(current)</span></a> -->
                       <router-link :to="'/'">
-                          ACCUEIL<span class="sr-only">(current)</span>
+                          <p>ACCUEIL</p>
                       </router-link>
                   </li>
                   <li class="nav-item">
                       <!-- <a class="nav-link" href="#">A PROPOS</a> -->
                       <router-link :to="'/about/'">
-                          A PROPOS
+                          APROPOS
                       </router-link>
                   </li>
                   <li class="nav-item">
@@ -40,7 +40,7 @@ upture tendon d'achille7<template>
                   <li class="nav-item">
                       <!-- <a class="nav-link" href="#">SE CONNECTER</a> -->
                       <router-link :to="'/login/'">
-                          SE CONNECTER
+                          SECONNECTER
                       </router-link>
                   </li>
               </ul>
@@ -94,6 +94,7 @@ export default {
         top: 15px;
         height: auto;
         background: white;
+        color: #000;
     }
 
     ul {
