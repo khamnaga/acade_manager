@@ -7,7 +7,7 @@
 
                     <hr class="xssm">
                     <figure>
-                        <img src="" alt="avatar de l'utilisateur">
+                        <!-- <img src="" alt="avatar de l'utilisateur"> -->
                     </figure>
                 </div>
                 <div class="bio">

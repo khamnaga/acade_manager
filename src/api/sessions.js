@@ -24,6 +24,14 @@ app.use(cors({
     methods: ["GET", "DELETE", "PATCH", "POST", "PUT"], // verbes http
 }));
 
+// CORS cross origin
+app.use(function (req, res, next) {
+    res.header("Access-Control-Allow-Origin", "*");
+    res.header("Access-Control-Allow-Methods", "GET, PUT, POST, PATCH, DELETE, OPTIONS");
+    res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+    next();
+});
+
 console.log("API sessions");
 
 // GET une SESSION
@@ -65,7 +73,7 @@ app.post("/sessions", (req, res) => {
     const sql = `INSERT INTO sessions (entitled, name, start_date, end_date, admin_firstname, admin_lastname) VALUES (${connection.escape(req.body.entitled)}, ${connection.escape(req.body.name)}, ${connection.escape(req.body.start_date)}, ${connection.escape(req.body.end_date)}, ${connection.escape(req.body.admin_firstname)}, ${connection.escape(req.body.admin_lastname)})`;
     console.log("sql:", sql);
 
-    connection.query(sql, null, (error, result, field) => {
+    connection.query(sql, (error, result, field) => {
         console.log('test insertion session');
         if (error) throw error;
         else {
